@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { BsJustify } from 'react-icons/bs';
 import cateAPI from "../../Api/categoryAPI";
-import {BsJustify} from 'react-icons/bs'
 
 
-const Category = (props) => {
+const Category = ({handleChange}) => {
   const [cateList, setCateList] = useState([]);
   const [isOpenMobile, setIsOpen] = useState(false);
 
@@ -18,6 +17,9 @@ const Category = (props) => {
 
   const handleChangeOpenMobile = ()=>{
     setIsOpen(true);
+  }
+  const handleClickBrand = (id)=>{
+    handleChange(id)
   }
   return (
     <div className="grid__column-2">
@@ -41,7 +43,7 @@ const Category = (props) => {
             </h1>
             <ul className="category-mobie-list">
               {cateList.map((item) => (
-                <li key={item.id} className="category-mobie-item ">
+                <li onClick={()=>handleClickBrand(item.id)} key={item.id} className="category-mobie-item ">
                   <a href="" className="category-mobie-item__link">
                     {item.nameBrand}
                   </a>
@@ -54,10 +56,10 @@ const Category = (props) => {
 
         <ul className="category-list">
           {cateList.map((item) => (
-            <li key={item.id} className="category-mobie-item ">
-              <a href="" className="category-mobie-item__link">
+            <li onClick={()=>handleClickBrand(item.id)} key={item.id} className="category-mobie-item ">
+              <span className="category-mobie-item__link">
                 {item.nameBrand}
-              </a>
+              </span>
             </li>
           ))}
         </ul>

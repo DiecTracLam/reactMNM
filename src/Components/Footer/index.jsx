@@ -69,19 +69,19 @@ const Footer = (props) => {
             <h3 className="footer__heading">Theo dõi</h3>
             <ul className="footer__list">
               <li className="footer_item">
-                <a href="http://facebook.com" className="footer_item__link">
+                <a href="https://www.facebook.com/ShopeeVN" className="footer_item__link">
                   <img src={require("../../assets/img/fb.png")} alt="" width="20" />
                   Facebook
                 </a>
               </li>
               <li className="footer_item">
-                <a href="https://www.instagram.com/" className="footer_item__link">
+                <a href="https://www.instagram.com/shopee_vn/" className="footer_item__link">
                   <img src={require("../../assets/img/174855.png")} alt="" width="20" />
                   Instagram
                 </a>
               </li>
               <li className="footer_item">
-                <a href="http://tiktok.com" className="footer_item__link">
+                <a href="https://www.tiktok.com/@shopee_vn?lang=vi-VN" className="footer_item__link">
                   <img
                     src={require("../../assets/img/tiktok-icon-logo-1CB398A1BD-seeklogo.com.png")}
                     alt=""

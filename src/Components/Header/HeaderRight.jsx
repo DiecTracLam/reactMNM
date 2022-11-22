@@ -8,7 +8,6 @@ import { MdNotifications } from "react-icons/md";
 const HeaderRight = (props) => {
   const user = useSelector((state) => state.user.user);
   const isLogin = !!user?.token;
-  console.log(user)
   return (
     <ul className="header__navbar-list">
       <li className="header__navbar-item header__navbar-item-hover">

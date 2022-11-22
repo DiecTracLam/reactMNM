@@ -1,8 +1,6 @@
 import React from "react";
-import Category from "./Category";
+import ListPage from "../../Features/ProductList";
 import MainBanner from "./MainBanner";
-import ProductList from "./ProductList/ProductList";
-import Sort from "./Sort";
 
 const Main = (props) => {
   return (
@@ -10,14 +8,7 @@ const Main = (props) => {
       <MainBanner />
       <div className="container">
         <div className="grid">
-          <div className="grid__row grid__content">
-              <Category />
-            {/* <!-------Sắp xếp sản phẩm------------------------------------------------------------------> */}
-            <div className="grid__column-10">
-              <Sort />
-              <ProductList />
-            </div>
-          </div>
+          <ListPage />
         </div>
       </div>
     </>

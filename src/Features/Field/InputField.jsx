@@ -22,7 +22,7 @@ const Inputfield = (props) => {
               value={value}
               style={{ borderColor: error ? "red" : "black" }}     
             />
-            <span className="errorText">{error && !isDirty ? error.message : ""}</span>
+            <span className="errorInp">{error && !isDirty ? error.message : ""}</span>
           </>
         )}
       />

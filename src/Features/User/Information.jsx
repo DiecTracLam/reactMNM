@@ -9,11 +9,13 @@ const Information = (props) => {
   useEffect(()=>{
     const api = async ()=>{
       const getApi = await userApi.getUser(userID);
+      console.log(getApi)
       setUser(getApi.data);
       setLoading(false);
     }
     api();
   },[])
+  console.log(user)
   const handleOnchane = (e)=>{
     const newtype = {[e.target.name]: e.target.value}
     setUser(prev=>({...prev , ...newtype}))
@@ -69,6 +71,7 @@ const Information = (props) => {
                       type="text"
                       className="au-form__input"
                       placeholder="Tên KH"
+                      value={user.fullname}
                       onChange={handleOnchane}
                     />
                   </div>
@@ -89,12 +92,13 @@ const Information = (props) => {
                       type="number"
                       className="au-form__input"
                       placeholder="Lúc đăng ký á"
+                      value={user.numberPhone}
                       onChange={handleOnchane}
                     />
                   </div>
                   <div className="info-item">
                     <h4 className="info grid__column-2-4">Địa chỉ</h4>
-                    <input name="address" type="text" placeholder="Nhập địa chỉ" className="au-form__input" onChange={handleOnchane} />
+                    <input name="address" type="text" placeholder="Nhập địa chỉ" className="au-form__input" value={user.address} onChange={handleOnchane} />
                   </div>
                   <div className="form__controls info-but">
                     <div className="grid__column-40"></div>

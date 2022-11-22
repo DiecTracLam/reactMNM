@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext');
 :root{
     --white-color: #fff;
     --black-color: #000;
@@ -24,7 +25,7 @@ html{
 /*-----------------Responsive------------------------*/
 .grid{
     width: 1600px;
-    max-width: 98%;
+    max-width: 99%;
     margin: 0 auto;
 }
 .grid__full-width{
@@ -85,7 +86,7 @@ html{
     display: flex;
     justify-content: center;
     align-items: left;
-    background-color:var(--bg-color);
+    background-color:var(--white-color);
 
 }
 
@@ -197,11 +198,11 @@ html{
 .banner2-img{
     width: 500px;
     border-radius: 10px;
+    box-shadow: 10px 10px 5px #ccc;
+        -moz-animation: 10px 10px 5px #ccc;
+        -webkit-box-shadow:10px 10px 5px #ccc;
+        -khtml-box-shadow:10px 10px 5px #ccc;
 }
-
-
-
-
 
 @keyframes fadeIn{
     from{opacity: 0;}
@@ -241,15 +242,14 @@ html{
 .btn.btn--buy{
     color: var(--white-color);
     background-color: var(--red-color);
-    width: 200px;    
-    font-size: 2.0rem;
+    width: 100px;    
+    font-size: 1.2rem;
     border-radius: 2px;
-    justify-content: center;
-    display: flex;
-    padding: 16px;
+    text-align: center;
+    padding: 4px 8px ;
 }
 .btn.btn--buy:hover{
-    color: black;
+    background: #f05d40;
 }
 .btn.btn--order{
     color: var(--white-color);
@@ -280,7 +280,6 @@ html{
 .select-input-icon{
     font-size: 1.4rem;
     color: rgb(131, 131, 131);
-    
     position: relative;
     top: 1px;
 }
@@ -304,7 +303,8 @@ html{
     padding: 4px 0;
 }
 .select-input-link:hover{
-    color: var(--hover-color);
+    color: orange;
+    cursor: pointer;
 }
 
 .buy-btn{

@@ -11,14 +11,15 @@ export const register = createAsyncThunk('user/register',async (payload)=>{
     return response.data;
 })
 
-// export const logout = createAsyncThunk('user/logout',async
-
 const userSlice = createSlice({
     name: 'user',
     initialState:{
         user:{}
     },
     reducers:{
+        Update:(state,payload)=>{
+            state.user = payload.user;
+        },
         Logout: state =>{
             state.user = {}
         }
