@@ -28,13 +28,13 @@ const ListPage = () => {
         });
         setList(getApi.data.product);
         setPageTotalCount(getApi.data.totalPage);
-        console.log(getApi.data);
+        // console.log(getApi.data);
         setLoading(false);
       } catch (error) {}
     };
     getProduct();
   }, [title, sort, brandID, pageCount , is_Sale]);
-  console.log(productlist);
+  // console.log(productlist);
   const handleChangeBrandID = (id) => {
     setBrandID(id);
     setPageCount(0);

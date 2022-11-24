@@ -15,6 +15,7 @@ const NumberField = (props) => {
           <>    
             <input
               type="number"
+              id="inp_number"
               className="au-form__input"
               placeholder={placeholder}
               onChange={onChange}

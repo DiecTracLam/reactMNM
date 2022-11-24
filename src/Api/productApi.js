@@ -2,7 +2,7 @@ import axiosClient from './axios';
 
 const productsAPI = {
     getAll(param){
-        console.log(param)
+        // console.log(param)
         const {pageCount , title ,sort , brandID , is_Sale} = param;
         const newpage = !pageCount || pageCount < 1 ? 1 : pageCount + 1;
         const is_sale = is_Sale == true ? "is_sale=1" : "" 

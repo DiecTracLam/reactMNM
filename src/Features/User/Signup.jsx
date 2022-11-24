@@ -1,13 +1,16 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import * as yup from "yup";
 import Inputfield from "../Field/InputField";
 import NumberField from "../Field/NumberField";
 import PasswordField from "../Field/PasswordField";
+import { register } from "./userRedux";
 
 const Signup = (props) => {
   const [open, setopen] = useState(false);
+  const dispatch = useDispatch();
   const handleOpenLog = () => {
     setopen(true);
   };
@@ -17,8 +20,8 @@ const Signup = (props) => {
 
   const handleSubmit = async (values) => {
     console.log(values);
-    // const action = await login(values);
-    // const result = dispatch(action);
+    const action = await register(values);
+    const result = dispatch(action);
   };
 
   const schema = yup
@@ -39,7 +42,7 @@ const Signup = (props) => {
         .string()
         .required("Hãy nhập email")
         .email("Please enter valid address your email"),
-      phone: yup
+      numberPhone: yup
         .number()
         .required("Hãy nhập số điện thoại")
         .min(10, "Hãy nhập đúng số điện thoại"),
@@ -52,7 +55,7 @@ const Signup = (props) => {
       password: "",
       retypePassword: "",
       email: "",
-      phone: "",
+      numberPhone: Number(),
     },
     resolver: yupResolver(schema),
   });
@@ -93,7 +96,7 @@ const Signup = (props) => {
                         />
                       </div>
                       <div className="au-form__gr">
-                        <NumberField control={form.control} name="phone" placeholder="Nhập số điện thoại"/>
+                        <NumberField control={form.control} name="numberPhone" placeholder="Nhập số điện thoại"/>
                       </div>
                       <div className="au-form__aside">
                         <p className="au-form__policy-text">

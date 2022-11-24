@@ -6,6 +6,7 @@ const Information = (props) => {
   const [user,setUser] = useState();
   const [loading , setLoading] = useState(true); 
   const userID = useSelector((state) => state.user.user.token);
+  const user2 = useSelector((state)=> state.user.user)
   useEffect(()=>{
     const api = async ()=>{
       const getApi = await userApi.getUser(userID);
@@ -50,7 +51,7 @@ const Information = (props) => {
                       type="text"
                       className="au-form__input"
                       placeholder="UserName"
-                      value = {user.username}
+                      value = {user2.username}
                       disabled
                     />
                   </div>
@@ -71,7 +72,7 @@ const Information = (props) => {
                       type="text"
                       className="au-form__input"
                       placeholder="Tên KH"
-                      value={user.fullname}
+                      value={user2.fullname}
                       onChange={handleOnchane}
                     />
                   </div>
@@ -83,6 +84,7 @@ const Information = (props) => {
                       className="au-form__input"
                       placeholder="Lúc đăng ký á"
                       onChange={handleOnchane}
+                      value={user2.email}
                     />
                   </div>
                   <div className="info-item">
@@ -92,7 +94,7 @@ const Information = (props) => {
                       type="number"
                       className="au-form__input"
                       placeholder="Lúc đăng ký á"
-                      value={user.numberPhone}
+                      value={user2.numberPhone}
                       onChange={handleOnchane}
                     />
                   </div>

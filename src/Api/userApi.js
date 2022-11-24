@@ -2,7 +2,7 @@ import axiosClient from './axios';
 
 const userApi = {
     register(data){
-        const url = '/user/create.php';
+        const url = 'resigter.php';
         return axiosClient.post(url, data);
     },
 

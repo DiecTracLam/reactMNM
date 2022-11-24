@@ -16,11 +16,14 @@ const DetailProduct = (props) => {
   useEffect(() => {
     const api = async () => {
       const getApi = await productsAPI.getDetail(params.id);
+      console.log(params.id);
       setProduct(getApi.data[0]);
       setLoading(false);
     };
     api();
   }, []);
+
+  console.log(product)
 
   const handleChangeAmount=(e)=>{
     if(e.target.value > 30){
