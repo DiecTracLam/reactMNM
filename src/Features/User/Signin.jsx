@@ -77,7 +77,7 @@ const Signin = (props) => {
                           onClick={handleOpenForget}
                           className="au-form__help-link au-form__help-forgot"
                         >
-                          Quên mật khẩu
+                          
                         </label>
                         <span className="au-form__help-separate"></span>
                         <a href="" className="au-form__help-link">

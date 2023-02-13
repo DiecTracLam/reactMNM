@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Logout } from "./userRedux";
 
 
 const Accountexist = (props) => {
   const dispatch = useDispatch()
+  const user = useSelector((state) => state.user.user);
+  const nameUser = user.fullname == "" ? user.username : user.fullname;
   const handleLogout = ()=>{
     const action = Logout();
     dispatch(action)
@@ -18,17 +20,14 @@ const Accountexist = (props) => {
           alt=""
           className="header__navbar-user-avatar"
         />
-        <span className="header__navbar-user-name">Tên KH</span>
+        <span className="header__navbar-user-name">{nameUser}</span>
         <ul className="header__navbar-user-menu">
           <li className="header__navbar-user-item">
             <Link to ="/account">Tài khoản của tôi</Link>
           </li>
 
           <li className="header__navbar-user-item">
-            <Link to="./cart">Đơn hàng của tôi</Link>
-          </li>
-          <li className="header__navbar-user-item">
-            <Link to="./history">Lịch sử mua hàng</Link>
+            <Link to="/order">Đơn hàng của tôi</Link>
           </li>
           <li className="header__navbar-user-item header__navbar-user-item-separate">
             <Link to="/" onClick={handleLogout}>

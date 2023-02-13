@@ -4,7 +4,7 @@ import HeaderRight from './HeaderRight';
 import HeaderInput from './HeaderInput';
 import HeaderCart from './HeaderCart';
 
-const Header = props => {
+const Header = ({handleChangeSearch}) => {
     return (
     
         <header className="header">
@@ -14,7 +14,7 @@ const Header = props => {
                     <HeaderRight/>
                 </nav>
                 <div className="header-with-search">                   
-                    <HeaderInput/>
+                    <HeaderInput handleChangeSearch={handleChangeSearch}/>
                     <HeaderCart/>
                 </div>
             </div>

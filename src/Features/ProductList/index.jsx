@@ -7,7 +7,7 @@ import ProductList from "./ProductList";
 import Sort from "../Sort/Sort";
 import Pagination from "../Pagination/index";
 
-const ListPage = () => {
+const ListPage = ({search}) => {
   const [productlist, setList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pageTotalCount, setPageTotalCount] = useState(0);
@@ -24,7 +24,8 @@ const ListPage = () => {
           title,
           sort,
           brandID,
-          is_Sale
+          is_Sale, 
+          search
         });
         setList(getApi.data.product);
         setPageTotalCount(getApi.data.totalPage);
@@ -33,7 +34,7 @@ const ListPage = () => {
       } catch (error) {}
     };
     getProduct();
-  }, [title, sort, brandID, pageCount , is_Sale]);
+  }, [title, sort, brandID, pageCount , is_Sale , search]);
   // console.log(productlist);
   const handleChangeBrandID = (id) => {
     setBrandID(id);

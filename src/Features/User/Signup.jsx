@@ -7,6 +7,8 @@ import Inputfield from "../Field/InputField";
 import NumberField from "../Field/NumberField";
 import PasswordField from "../Field/PasswordField";
 import { register } from "./userRedux";
+import { NotificationManager , NotificationContainer} from 'react-notifications';
+
 
 const Signup = (props) => {
   const [open, setopen] = useState(false);
@@ -19,9 +21,10 @@ const Signup = (props) => {
   };
 
   const handleSubmit = async (values) => {
-    console.log(values);
     const action = await register(values);
-    const result = dispatch(action);
+    dispatch(action);
+    NotificationManager.success('Đăng ký thành công')
+
   };
 
   const schema = yup

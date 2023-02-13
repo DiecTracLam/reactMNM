@@ -11,20 +11,31 @@ import History from "./Components/Main/History";
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer} from 'react-notifications';
 import Cart from "./Features/Cart";
+import Order from './Features/Order/Order';
+import Orderdetail from './Features/Order/Orderdetail';
+import { useState } from 'react';
 
 
 
 function App() {
+  const [search , setSearch] = useState("")
+
+  const handleChangeSearch = (data) =>{
+    setSearch(data);
+  } 
   return (
     <div className="app">
-      <Header />
+      <Header handleChangeSearch={handleChangeSearch}/>
       <div className="main">
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route path="/" element={<Main search={search}/>} />
           <Route path="/product/:id" element={<DetailProduct/>} />
           <Route path="history" element={<History />} />
           <Route path="cart" element={<Cart />} />
           <Route path='account' element={<Information/>}/>
+          <Route path='order' element={<Order/>}/>
+          <Route path='/order/:id' element={<Orderdetail/>}/>
+
         </Routes>
       </div>
       <Footer />

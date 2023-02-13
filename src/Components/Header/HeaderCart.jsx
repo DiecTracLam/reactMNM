@@ -26,7 +26,7 @@ const HeaderCart = (props) => {
           {/* <!----------Cart empty: header__cart-empty---------------------------------------> */}
           <div className="header__cart-list ">
             {CountItem <= 0 ? (
-              <>
+              <div className="header__wrap-cart">
                 {/* <!--Here--> */}
                 <img
                   src={require("../../assets/img/cart-empty.png")}
@@ -36,7 +36,7 @@ const HeaderCart = (props) => {
                 <span className="header__cart-empty-text">
                   Chưa có sản phẩm
                 </span>
-              </>
+              </div>
             ) : (
               <>
                 <h3 className="header__cart-heading">Sản phẩm đã thêm</h3>

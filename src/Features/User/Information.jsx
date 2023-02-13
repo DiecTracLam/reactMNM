@@ -1,32 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import userApi from "../../Api/userApi";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "./userRedux";
 
 const Information = (props) => {
-  const [user,setUser] = useState();
+
   const [loading , setLoading] = useState(true); 
-  const userID = useSelector((state) => state.user.user.token);
+  // const userID = useSelector((state) => state.user.user.token);
   const user2 = useSelector((state)=> state.user.user)
-  useEffect(()=>{
-    const api = async ()=>{
-      const getApi = await userApi.getUser(userID);
-      console.log(getApi)
-      setUser(getApi.data);
-      setLoading(false);
-    }
-    api();
-  },[])
+  const [user,setUser] = useState(user2);
+  const dispatch = useDispatch();
+  // useEffect(()=>{
+  //   const api = async ()=>{
+  //     const getApi = await userApi.getUser(userID);
+  //     console.log(getApi)
+  //     setUser(getApi.data);
+  //     setLoading(false);
+  //   }
+  //   api();
+  // },[])
   console.log(user)
   const handleOnchane = (e)=>{
+    console.log(e.target.name)
     const newtype = {[e.target.name]: e.target.value}
     setUser(prev=>({...prev , ...newtype}))
   }
 
-  const handleSubmit = async()=>{
-  //  const upload = await userApi.updateUser();
+  const handleSubmit = async(e)=>{
+    e.preventDefault();
+    const action = await register(user);
+
+    dispatch(action)
    
   }
-  if(loading) return
+  // if(loading) return
   return (
     <>
       <div className="container">
@@ -48,10 +54,11 @@ const Information = (props) => {
                   <div className="info-item">
                     <h4 className="info grid__column-2-4">Tên đăng nhập</h4>
                     <input
+                      name="username"
                       type="text"
                       className="au-form__input"
                       placeholder="UserName"
-                      value = {user2.username}
+                      value = {user.username}
                       disabled
                     />
                   </div>
@@ -68,11 +75,11 @@ const Information = (props) => {
                   <div className="info-item">
                     <h4 className="info grid__column-2-4">Tên khách hàng </h4>
                     <input
-                      name="username"
+                      name="fullname"
                       type="text"
                       className="au-form__input"
                       placeholder="Tên KH"
-                      value={user2.fullname}
+                      value={user.fullname}
                       onChange={handleOnchane}
                     />
                   </div>
@@ -84,7 +91,7 @@ const Information = (props) => {
                       className="au-form__input"
                       placeholder="Lúc đăng ký á"
                       onChange={handleOnchane}
-                      value={user2.email}
+                      value={user.email}
                     />
                   </div>
                   <div className="info-item">
@@ -94,7 +101,7 @@ const Information = (props) => {
                       type="number"
                       className="au-form__input"
                       placeholder="Lúc đăng ký á"
-                      value={user2.numberPhone}
+                      value={user.numberPhone}
                       onChange={handleOnchane}
                     />
                   </div>
